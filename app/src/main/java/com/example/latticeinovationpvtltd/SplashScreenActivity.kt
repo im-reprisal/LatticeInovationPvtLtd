@@ -1,5 +1,6 @@
 package com.example.latticeinovationpvtltd
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.latticeinovationpvtltd.UI.MainActivity
 import com.example.latticeinovationpvtltd.databinding.ActivitySplashScreenBinding
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
     lateinit var binding: ActivitySplashScreenBinding
     lateinit var handler: Handler
