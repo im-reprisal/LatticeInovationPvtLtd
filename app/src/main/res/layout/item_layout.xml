@@ -41,13 +41,14 @@
                     android:layout_height="wrap_content"
                     android:text="Customers have long suspected iPhones slow down over time.Now,Apple has confirmed some models do"/>
             </LinearLayout>
+
             <ImageView
                 android:id="@+id/ivImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:padding="10dp"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_launcher_background"/>
+                android:padding="10dp"
+                android:src="@drawable/ic_launcher_background" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </layout>
