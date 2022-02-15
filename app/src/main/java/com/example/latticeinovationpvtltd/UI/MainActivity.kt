@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding.shimmerFrameLayout.startShimmerAnimation()
         setAdapter()
         responseViewModel.callAPI()
+
         /**
          * observing each data inside the list using live data
          */
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
     /**
      * setting all the data in recyclerview
@@ -69,15 +71,5 @@ class MainActivity : AppCompatActivity() {
             adapter = responseAdapter
             layoutManager = linearLayoutManager
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_main,menu)
-        val searchManager =  getSystemService(Context.SEARCH_SERVICE)
-        val searchView = menu?.findItem(R.id.action_search)?.actionView
-        val searchMenuItem = menu?.findItem(R.id.action_search)
-        searchView
-        return super.onCreateOptionsMenu(menu)
     }
 }

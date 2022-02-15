@@ -7,6 +7,8 @@ import com.example.latticeinovationpvtltd.DATA.models.Article
 class ResponseRepository {
     private fun getService(): Service = Network.getRetrofit().create(Service::class.java)
     suspend fun getDataFromService(): List<Article> {
-        return getService().getArticle().articles
+        return getService().getArticleFromAPI().articles
     }
+    suspend fun searchNews(searchQuery: String, pageNumber: Int) =
+         getService().searchForNews(searchQuery, pageNumber)
 }
