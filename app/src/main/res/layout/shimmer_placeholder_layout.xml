@@ -4,13 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_margin="10dp"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="14dp"
     app:cardElevation="15dp"
     android:elevation="10dp"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_margin="10dp"
+        android:background="#dddddd"
         android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/contentContainer"
@@ -26,7 +27,6 @@
                     android:id="@+id/tvHour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2 hours ago"
                     android:textSize="12sp"/>
                 <TextView
                     android:id="@+id/tvChannel"
@@ -34,7 +34,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
                     android:textStyle="bold"
-                    android:text="BBC News"
                     android:textSize="12sp"/>
             </LinearLayout>
             <TextView
@@ -45,8 +44,7 @@
                 android:layout_marginTop="2dp"
                 android:textColor="#4987C2"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:text="Apple admits slowing down older iPhones"/>
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="match_parent"
@@ -55,15 +53,14 @@
                 android:textColor="#87ceeb"
                 android:layout_marginTop="3dp"
                 android:textStyle="bold"
-                android:textSize="12sp"
-                android:text="Customers have long suspected iPhones slow down over time.Now,Apple has confirmed some models do"/>
+                android:textSize="12sp"/>
         </LinearLayout>
         <ImageView
             android:id="@+id/ivImage"
             android:layout_width="100dp"
             android:layout_height="110dp"
             android:layout_alignParentEnd="true"
-            android:padding="5dp"
-            android:src="@drawable/ic_launcher_background"/>
+            android:src="@drawable/ic_launcher_background"
+            android:padding="5dp"/>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
