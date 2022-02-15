@@ -1,7 +1,10 @@
 package com.example.latticeinovationpvtltd.UI
 
+import android.app.SearchManager
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -66,5 +69,15 @@ class MainActivity : AppCompatActivity() {
             adapter = responseAdapter
             layoutManager = linearLayoutManager
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_main,menu)
+        val searchManager =  getSystemService(Context.SEARCH_SERVICE)
+        val searchView = menu?.findItem(R.id.action_search)?.actionView
+        val searchMenuItem = menu?.findItem(R.id.action_search)
+        searchView
+        return super.onCreateOptionsMenu(menu)
     }
 }

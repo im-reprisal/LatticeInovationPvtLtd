@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.latticeinovationpvtltd.DATA.models.Article
+import com.example.latticeinovationpvtltd.R
 import com.example.latticeinovationpvtltd.databinding.ItemLayoutBinding
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -28,14 +29,14 @@ class ResponseAdapter(val context: Context, private val responseList : List<Arti
                 val time: Long = sdf.parse(data.publishedAt).time
                 val now = System.currentTimeMillis()
                 val ago = DateUtils.getRelativeTimeSpanString(time, now, DateUtils.MINUTE_IN_MILLIS)
-                tvHour.text = ago
+             //   tvHour.text = ago
             } catch (e: ParseException) {
                 e.printStackTrace()
             }
             tvChannel.text = data.source.name
             tvTitle.text = data.title
             tvDescription.text = data.description
-            Glide.with(context).load(data.urlToImage).into(ivImage)
+            Glide.with(context).load(data.urlToImage).placeholder(R.drawable.ic_image_not_supported).into(ivImage)
         }
     }
     override fun getItemCount(): Int {

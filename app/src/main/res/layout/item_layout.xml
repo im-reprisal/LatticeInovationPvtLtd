@@ -28,15 +28,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2 hours ago"
-                        android:textSize="12sp"/>
+                        android:textSize="11.5sp"/>
                     <TextView
                         android:id="@+id/tvChannel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
+                        android:layout_marginStart="3dp"
                         android:textStyle="bold"
                         android:text="BBC News"
-                        android:textSize="12sp"/>
+                        android:textSize="13sp"/>
                 </LinearLayout>
                 <TextView
                     android:id="@+id/tvTitle"
