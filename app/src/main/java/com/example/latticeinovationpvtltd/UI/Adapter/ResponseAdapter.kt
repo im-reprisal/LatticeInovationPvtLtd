@@ -22,7 +22,7 @@ class ResponseAdapter(val context: Context, private val responseList : List<Arti
     override fun onBindViewHolder(holder:ResponseViewHolder, position: Int) {
         val data = responseList[position]
         holder.itemLayoutBinding.apply {
-            val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+            val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
             sdf.timeZone = TimeZone.getTimeZone("GMT")
             try {
                 val time: Long = sdf.parse(data.publishedAt).time
