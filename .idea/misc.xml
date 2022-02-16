@@ -5,9 +5,13 @@
       <map>
         <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/drawable/ic_launcher_background.xml" value="0.162" />
         <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/layout/activity_main_data.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/layout/activity_splash_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/layout/item_article_preview.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/layout/item_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/layout/search_item_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/layout/shimmer_placeholder_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/menu/menu_main.xml" value="0.2574074074074074" />
         <entry key="..\:/Users/nc110/Desktop/LatticeInovationPvtLtd/app/src/main/res/menu/mwnu_main.xml" value="0.27447916666666666" />
       </map>
     </option>

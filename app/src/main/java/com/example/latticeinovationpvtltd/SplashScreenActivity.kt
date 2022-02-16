@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import androidx.databinding.DataBindingUtil
-import com.example.latticeinovationpvtltd.UI.MainActivity
+import com.example.latticeinovationpvtltd.UI.DataMainActivity
 import com.example.latticeinovationpvtltd.databinding.ActivitySplashScreenBinding
 
 @SuppressLint("CustomSplashScreen")
@@ -18,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 binding = DataBindingUtil.setContentView(this, R.layout.activity_splash_screen)
                 handler = Handler()
                 handler.postDelayed({
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, DataMainActivity::class.java)
                     startActivity(intent)
                     finish()
                 } , 1400)

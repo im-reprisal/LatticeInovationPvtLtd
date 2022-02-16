@@ -29,7 +29,7 @@ class ResponseAdapter(val context: Context, private val responseList : List<Arti
                 val time: Long = sdf.parse(data.publishedAt).time
                 val now = System.currentTimeMillis()
                 val ago = DateUtils.getRelativeTimeSpanString(time, now, DateUtils.MINUTE_IN_MILLIS)
-             //   tvHour.text = ago
+                tvHour.text = ago
             } catch (e: ParseException) {
                 e.printStackTrace()
             }

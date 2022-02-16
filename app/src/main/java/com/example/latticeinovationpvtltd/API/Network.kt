@@ -12,6 +12,4 @@ object Network {
         .addConverterFactory(GsonConverterFactory.create())
         .client(OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build())
         .build()
-
-
 }

@@ -3,15 +3,14 @@ package com.example.latticeinovationpvtltd.UI.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import com.example.latticeinovationpvtltd.API.NetworkHelperClass
+import com.example.latticeinovationpvtltd.API.Resource
 import com.example.latticeinovationpvtltd.DATA.Repo.ResponseRepository
 import com.example.latticeinovationpvtltd.DATA.models.ResponseModel
-import com.example.latticeinovationpvtltd.Resource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
-
 
 class ResponseViewModel: ViewModel() {
     val responseRepository = ResponseRepository()
@@ -20,15 +19,25 @@ class ResponseViewModel: ViewModel() {
     fun callAPI() {
         CoroutineScope(Dispatchers.IO).launch {
             val response = responseRepository.getDataFromService()
-            mutableLiveData.postValue(NetworkHelperClass.OnSuccess(response))
+            mutableLiveData.postValue(NetworkHelperClass.OnSuccess_1(response))
         }
     }
-    private fun handleSearchNewsResponse(response: Response<ResponseModel>) : Resource<ResponseModel> {
-        if(response.isSuccessful) {
-            response.body()?.let { resultResponse ->
-                return Resource.Success(resultResponse)
+
+    private val mutableLiveDataForSearch = MutableLiveData<NetworkHelperClass>()
+    val liveDataForSearch: LiveData<NetworkHelperClass> = mutableLiveDataForSearch
+
+    fun getData(query: String) : LiveData<ResponseModel>{
+        CoroutineScope(Dispatchers.IO).launch {
+            val repo = responseRepository.getSearchDataFromApi(query)
+            if (repo != null) {
+                mutableLiveData.postValue(NetworkHelperClass.OnSuccess_2(repo))
+            } else {
+                mutableLiveData.postValue(NetworkHelperClass.OnFailure("Error"))
             }
         }
-        return Resource.Error(response.message())
+        return liveData(Dispatchers.IO) {
+            val data = responseRepository.getSearchDataFromApi(query)
+            emit(data)
+        }
     }
 }
