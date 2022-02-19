@@ -29,8 +29,8 @@ class ResponseViewModel: ViewModel() {
 
     fun getData(query: String) : LiveData<ResponseModel>{
         CoroutineScope(Dispatchers.IO).launch {
-            val repo = responseRepository.getSearchDataFromApi(query)
-            mutableLiveData.postValue(NetworkHelperClass.OnSuccess_2(repo))
+            val response = responseRepository.getSearchDataFromApi(query)
+            mutableLiveData.postValue(NetworkHelperClass.OnSuccess_2(response))
         }
         return liveData(Dispatchers.IO) {
             val data = responseRepository.getSearchDataFromApi(query)
