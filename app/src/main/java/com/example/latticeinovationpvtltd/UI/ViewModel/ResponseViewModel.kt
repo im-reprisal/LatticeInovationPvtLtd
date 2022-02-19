@@ -7,6 +7,7 @@ import androidx.lifecycle.liveData
 import com.example.latticeinovationpvtltd.API.NetworkHelperClass
 import com.example.latticeinovationpvtltd.API.Resource
 import com.example.latticeinovationpvtltd.DATA.Repo.ResponseRepository
+import com.example.latticeinovationpvtltd.DATA.models.Article
 import com.example.latticeinovationpvtltd.DATA.models.ResponseModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

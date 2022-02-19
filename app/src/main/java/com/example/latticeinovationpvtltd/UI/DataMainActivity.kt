@@ -28,9 +28,10 @@ class DataMainActivity : AppCompatActivity() {
     private lateinit var responseViewModel: ResponseViewModel
     private var tempList = mutableListOf<Article>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        responseAdapter = ResponseAdapter(this,tempList)
+        responseAdapter = ResponseAdapter(this, tempList)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_data)
 
         responseViewModel = ViewModelProvider(this)[ResponseViewModel::class.java]
@@ -40,6 +41,7 @@ class DataMainActivity : AppCompatActivity() {
         binding.shimmerFrameLayout.startShimmerAnimation()
         loadData()
     }
+
     /**
      * setting all the data in recyclerview
      */
