@@ -42,6 +42,7 @@ class DataMainActivity : AppCompatActivity() {
          */
         binding.shimmerFrameLayout.startShimmerAnimation()
         loadData()
+        search()
     }
 
     /**
