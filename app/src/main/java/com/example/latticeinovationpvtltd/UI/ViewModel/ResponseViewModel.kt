@@ -30,11 +30,7 @@ class ResponseViewModel: ViewModel() {
     fun getData(query: String) : LiveData<ResponseModel>{
         CoroutineScope(Dispatchers.IO).launch {
             val repo = responseRepository.getSearchDataFromApi(query)
-            if (repo != null) {
-                mutableLiveData.postValue(NetworkHelperClass.OnSuccess_2(repo))
-            } else {
-                mutableLiveData.postValue(NetworkHelperClass.OnFailure("Error"))
-            }
+            mutableLiveData.postValue(NetworkHelperClass.OnSuccess_2(repo))
         }
         return liveData(Dispatchers.IO) {
             val data = responseRepository.getSearchDataFromApi(query)
