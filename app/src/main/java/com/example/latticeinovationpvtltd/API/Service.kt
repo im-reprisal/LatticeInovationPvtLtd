@@ -5,7 +5,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface Service {
-    @GET("top-headlines?country=in&apiKey=2723fe6d30b6429bb61446b7c0571a0e")
+      @GET("top-headlines?country=in&apiKey=2723fe6d30b6429bb61446b7c0571a0e&pageSize=100")
+   // @GET("everything?q=bitcoin&apiKey=2723fe6d30b6429bb61446b7c0571a0e&pageSize=100")
     suspend fun getArticleFromAPI(): ResponseModel
 
     @GET("everything")
