@@ -14,8 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ResponseViewModel: ViewModel() {
-    val responseRepository = ResponseRepository()
-    val mutableLiveData = MutableLiveData<NetworkHelperClass>()
+    private val responseRepository = ResponseRepository()
+    private val mutableLiveData = MutableLiveData<NetworkHelperClass>()
     val liveData: LiveData<NetworkHelperClass> = mutableLiveData
     fun callAPI() {
         CoroutineScope(Dispatchers.IO).launch {
