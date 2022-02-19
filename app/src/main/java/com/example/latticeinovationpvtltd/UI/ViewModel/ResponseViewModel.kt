@@ -27,14 +27,20 @@ class ResponseViewModel: ViewModel() {
     private val mutableLiveDataForSearch = MutableLiveData<NetworkHelperClass>()
     val liveDataForSearch: LiveData<NetworkHelperClass> = mutableLiveDataForSearch
 
-    fun getData(query: String) : LiveData<ResponseModel>{
+//    fun getData(query: String) : LiveData<ResponseModel>{
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val response = responseRepository.getSearchDataFromApi(query)
+//            mutableLiveData.postValue(NetworkHelperClass.OnSuccess_2(response))
+//        }
+//        return liveData(Dispatchers.IO) {
+//            val data = responseRepository.getSearchDataFromApi(query)
+//            emit(data)
+//        }
+//    }
+    fun searchAnItem(query:String){
         CoroutineScope(Dispatchers.IO).launch {
             val response = responseRepository.getSearchDataFromApi(query)
-            mutableLiveData.postValue(NetworkHelperClass.OnSuccess_2(response))
-        }
-        return liveData(Dispatchers.IO) {
-            val data = responseRepository.getSearchDataFromApi(query)
-            emit(data)
+            mutableLiveDataForSearch.postValue(NetworkHelperClass.OnSuccess_1(response))
         }
     }
 }

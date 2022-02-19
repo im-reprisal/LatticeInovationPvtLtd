@@ -1,15 +1,11 @@
 package com.example.latticeinovationpvtltd.UI
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +15,6 @@ import com.example.latticeinovationpvtltd.R
 import com.example.latticeinovationpvtltd.UI.Adapter.ResponseAdapter
 import com.example.latticeinovationpvtltd.UI.ViewModel.ResponseViewModel
 import com.example.latticeinovationpvtltd.databinding.ActivityMainDataBinding
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -28,7 +23,7 @@ class DataMainActivity : AppCompatActivity() {
     var list = emptyList<Article>()
     lateinit var responseAdapter : ResponseAdapter
     private lateinit var responseViewModel: ResponseViewModel
-    private var tempList = mutableListOf<Article>()
+    private var tempList = emptyList<Article>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +35,7 @@ class DataMainActivity : AppCompatActivity() {
         /**
          * starting the shimmer effect
          */
+        var text = binding.etText.text.toString()
         binding.shimmerFrameLayout.startShimmerAnimation()
         loadData()
         search()
@@ -89,7 +85,7 @@ class DataMainActivity : AppCompatActivity() {
      * search the data in api
      */
     private fun search() {
-        binding.search.addTextChangedListener(object : TextWatcher {
+        binding.etText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -106,11 +102,15 @@ class DataMainActivity : AppCompatActivity() {
     }
 
     private fun loadApi(query: String) {
-        responseViewModel.getData(query)
+        responseViewModel.searchAnItem(query)
         responseViewModel.liveDataForSearch.observe(this) {
             it.let {
                 when (it) {
-                    is NetworkHelperClass.OnSuccess_2 -> {
+                    is NetworkHelperClass.OnSuccess_1 -> {
+                        binding.apply {
+                            recyclerView.visibility = View.VISIBLE
+                        }
+
                         tempList = it.responseList as ArrayList<Article>
                         setAdapter()
                     }

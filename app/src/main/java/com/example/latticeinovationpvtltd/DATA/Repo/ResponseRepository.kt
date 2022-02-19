@@ -10,7 +10,7 @@ class ResponseRepository {
     suspend fun getDataFromService(): List<Article> {
         return getService().getArticleFromAPI().articles
     }
-    suspend fun getSearchDataFromApi(query: String): ResponseModel {
-            return getService().getSearchedData(query, "2723fe6d30b6429bb61446b7c0571a0e")
+    suspend fun getSearchDataFromApi(query: String): List<Article> {
+        return getService().getSearchedData(query, "2723fe6d30b6429bb61446b7c0571a0e").articles
     }
 }
