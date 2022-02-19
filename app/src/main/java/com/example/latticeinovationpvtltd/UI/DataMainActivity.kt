@@ -3,6 +3,8 @@ package com.example.latticeinovationpvtltd.UI
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -85,75 +87,75 @@ class DataMainActivity : AppCompatActivity() {
     /**
      * search the data in api
      */
-//    private fun search() {
-//        binding.search.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                loadApi(p0.toString())
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//
-//        })
-//
-//    }
-//
-//    private fun loadApi(query: String) {
-//        responseViewModel.getData(query)
-//        responseViewModel.liveDataForSearch.observe(this) {
-//            it.let {
-//                when (it) {
-//                    is NetworkHelperClass.OnSuccess_2 -> {
-//                        tempList = it.responseList as ArrayList<Article>
-//                        setAdapter()
-//                    }
-//
-//                    is NetworkHelperClass.OnFailure -> {
-//                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//            }
-//        }
-//    }
+    private fun search() {
+        binding.search.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                loadApi(p0.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+        })
+
+    }
+
+    private fun loadApi(query: String) {
+        responseViewModel.getData(query)
+        responseViewModel.liveDataForSearch.observe(this) {
+            it.let {
+                when (it) {
+                    is NetworkHelperClass.OnSuccess_2 -> {
+                        tempList = it.responseList as ArrayList<Article>
+                        setAdapter()
+                    }
+
+                    is NetworkHelperClass.OnFailure -> {
+                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * search in existing recycler view list
      */
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-
-        val item: MenuItem = menu!!.findItem(R.id.action_search)
-        val searchView = item.actionView as SearchView
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return true
-            }
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onQueryTextChange(newText: String?): Boolean {
-                if(newText!!.isNotEmpty()){
-                    tempList.clear()
-                    var search = newText.toLowerCase(Locale.getDefault())
-
-                    for (article in list){
-                        if (article.title.toLowerCase(Locale.getDefault()).contains(search)){
-                            tempList.add(article)
-                        }
-                        binding.recyclerView.adapter!!.notifyDataSetChanged()
-                    }
-                }
-                else{
-                    tempList.clear()
-                    tempList.addAll(list)
-                    binding.recyclerView.adapter!!.notifyDataSetChanged()
-                }
-                return true
-            }
-        })
-        return super.onCreateOptionsMenu(menu)
-
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_main, menu)
+//
+//        val item: MenuItem = menu!!.findItem(R.id.action_search)
+//        val searchView = item.actionView as SearchView
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                return true
+//            }
+//            @SuppressLint("NotifyDataSetChanged")
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                if(newText!!.isNotEmpty()){
+//                    tempList.clear()
+//                    var search = newText.toLowerCase(Locale.getDefault())
+//
+//                    for (article in list){
+//                        if (article.title.toLowerCase(Locale.getDefault()).contains(search)){
+//                            tempList.add(article)
+//                        }
+//                        binding.recyclerView.adapter!!.notifyDataSetChanged()
+//                    }
+//                }
+//                else{
+//                    tempList.clear()
+//                    tempList.addAll(list)
+//                    binding.recyclerView.adapter!!.notifyDataSetChanged()
+//                }
+//                return true
+//            }
+//        })
+//        return super.onCreateOptionsMenu(menu)
+//
+//    }
 }
